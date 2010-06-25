@@ -1,0 +1,32 @@
+#-*- coding: utf-8 -*-
+<%inherit file="/chrome.html" />
+
+<%def name="head_tags()">
+  <!-- add some head tags here -->
+</%def>
+
+
+<div class='main_content'>
+  <div class='content_title'><span>Versions:</span></div>
+  % if not len(gameVersions):
+  <span>No Versions Found</span>
+  % else:
+  % for version in gameVersions:
+  <div class="race-pane">
+    %if version.is_current:
+    <b>
+    %endif
+      <span>${ version.version_number }</span>
+    %if version.is_current:
+    </b>
+    %endif
+    <span><a href="${ version.updateUrl }">[e]</a></span>
+    <span><a href="${ version.deleteUrl }">[x]</a></span>
+  </div>
+  % endfor
+  % endif
+  <div class="create_button">
+    <a href="${ create_url }">Create New</a>
+  </div>
+
+</div>

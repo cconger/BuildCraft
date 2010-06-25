@@ -1,0 +1,77 @@
+#-*- coding: utf-8 -*-
+<%def name="imageField(existing)">
+  <div class="field_row">
+    <label>Image
+      <input type="file" name="image" />
+    </label>
+    %if existing is not UNDEFINED and existing.get('imageUrl'):
+      <img src="${existing.get('imageUrl')}" />
+    %endif
+  </div>
+</%def>
+
+<%def name="checkBox(label, var, existing)">
+<% 
+checked = existing is not UNDEFINED and existing.get(var, False)
+%>
+<div class="form_row">
+  <label>${label}
+    <input type="checkbox" name="${var}" value="True" checked="${checked}" />
+  </label>
+</div>
+</%def>
+
+<%def name="textField(label, var, old)">
+<%
+if old is not UNDEFINED and old.get(var):
+  value = old.get(var)
+else:
+  value = ""
+endif
+%>
+
+  <div class="field_row">
+    <label class="text_label">
+      ${label}
+      <input type="text" name="${var}" value="${value}"/>
+    </label>
+  </div>
+</%def>
+
+<%def name="versionSelect()">
+<div class="field_row">
+  <label>Version
+    <select name="versions" multiple="True">
+      %for version in gameVersions:
+      <%
+        if (existingBuildable is not UNDEFINED and version.key() in existingBuildable.get('game_versions',[])) or version.is_current:
+          sel = "selected='True'"
+        else:
+          sel = ""
+        endif
+      %>
+      <option value="${version.key()}" ${sel}>${version.version_number}</option>
+      %endfor
+    </select>
+  </label>
+</div>
+</%def>
+
+<%def name="raceSelect()">
+<div class="field_row">
+  <label>Race
+    <select name="race">
+    %for race in races:
+    <%
+      if existingBuildable is not UNDEFINED and existingBuildable.get('race') is race:
+        sel = "selected='True'"
+      else:
+        sel = ""
+      endif
+    %>
+    <option value="${race.key()}" ${sel}>${race.name}</option>
+    %endfor
+    </select>
+  </label>
+</div>
+</%def>

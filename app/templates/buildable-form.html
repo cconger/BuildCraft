@@ -1,0 +1,33 @@
+#-*- coding: utf-8 -*-
+<%inherit file="/chrome.html" />
+
+<%namespace file="form-helpers.html" import="*" />
+
+<%def name="head_tags()">
+  <!-- add some head tags here -->
+</%def>
+
+<div class="main_content">
+  <div class="content_title">
+    <span>${title}</span>
+  </div>
+  <form name="buildable" enctype="multipart/form_data" action="${submit_url}" method="post">
+
+    ${raceSelect()}
+    ${versionSelect()}
+
+    ${textField("Name", "name", existingBuildable)}
+
+    ${imageField(existingBuildable)}
+
+    ${textField("Supply Cost", "supply_cost", existingBuildable)}
+    ${textField("Mineral Cost", "mineral_cost", existingBuildable)}
+    ${textField("Gas Cost", "gas_cost", existingBuildable)}
+    ${textField("Energy Cost", "energy_cost", existingBuildable)}
+    ${textField("Description", "description", existingBuildable)}
+    <div class="form_row">
+      <input type='submit' value='Submit' name='submit' />
+    </div>
+  </form>
+</div>
+

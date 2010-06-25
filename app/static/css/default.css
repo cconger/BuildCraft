@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a:visited {
+  color: blue;
+}
+
+div.error_bar{
+  width: 400px;
+  border: solid thick red;
+  margin: 10px auto;
+  padding: 2px;
+}
+
+div.warning_bar{
+  width: 400px;
+  border: solid thick yellow;
+  margin: 10px auto;
+  padding: 2px;
+}
+
+div.buildable_pane {
+  margin: 40px 20px;
+  clear: both;
+  width: 400px;
+  border: solid thin black;
+  line-height: 24px;
+  height: 24px;
+}
+
+div.food_count {
+  width: 30px;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+}
+
+input.buildableFood {
+  width: 20px;
+}
+
+img.buildable_img {
+  float: left;
+  position: relative;
+  top: -16px;
+  left: 0px;
+  width: 48px;
+  border: solid thin gray;
+  padding: 2px;
+}
+
+div.buildable_description {
+  float: left;
+  margin-left: 5px;
+}
+
+div.buildable_suppliments {
+  text-align: right;
+  float; right;
+  color: gray;
+  padding-right: 5px;
+}
+
+.title_bar {
+  height: 20px;
+  min-width: 800px;
+  border-bottom: solid thin black;
+}
+
+.content_float {
+  width: 700px;
+  border: solid thin black;
+  margin: 2em auto;
+}
+
+.content_main {
+  font-size: 11pt;
+  margin: 1em;
+}
+
+.content_title{
+  font-size: 15pt;
+  text-decoration: bold;
+}
+
+.footer {
+  width: 600px;
+  margin: 0 auto;
+  border: solid thin black;
+  text-align: center;
+  overflow: auto;
+}
+
+.footer p {
+  font-style: italic;
+}
+
+.footer_column {
+  width: 49%;
+  float: left;
+}

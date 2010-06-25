@@ -1,0 +1,21 @@
+#-*- coding: utf-8 -*-
+<%inherit file="/chrome.html" />
+
+<%namespace file="form-helpers.html" import="*" />
+
+<%def name="head_tags()">
+  <!-- add some head tags here -->
+</%def>
+
+<div class="main_content">
+  <div class="content_title">
+    <span>${title}</span>
+  </div>
+  <form name="race" enctype="multipart/form-data" action="${ submit_url }" method="post">
+    ${textField("Name", 'name', existingRace)}
+    ${imageField(existingRace)}
+    <div class="field_row">
+      <input type="submit" name="submit" value="submit" />
+    </div>
+  </form>
+</div>

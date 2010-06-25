@@ -1,0 +1,19 @@
+#-*- coding: utf-8 -*-
+<%inherit file="/chrome.html" />
+
+<%namespace file="form-helpers.html" import="*" />
+
+<%def name="head_tags()">
+  <!-- add some head tags here -->
+</%def>
+
+<div>
+  <form name="version" action="${submit_url}" method="post">
+    ${textField("Version Number", 'version_number', existingVersion)}
+    ${checkBox("Is Current?", 'is_current', existingVersion)}
+    <div class="field_row">
+      <input type="submit" value="Submit" name="submit" />
+    </div>
+  </form>
+</div>
+

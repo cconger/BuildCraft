@@ -1,0 +1,27 @@
+#-*- coding: utf-8 -*-
+<%inherit file="/chrome.html" />
+
+<%def name="head_tags()">
+  <!-- add some head tags here -->
+</%def>
+
+
+<div class='main_content'>
+  <div class='content_title'><span>Races:</span></div>
+  % if len(races) == 0:
+  <span>No Races Found</span>
+  % else:
+  % for race in races:
+  <div clsas="race-pane">
+    <img src="${ race.imageUrl }" />
+    <span>${ race.name }</span>
+    <span><a href="${ race.updateUrl }">[e]</a></span>
+    <span><a href="${ race.deleteUrl }">[x]</a></span>
+  </div>
+  % endfor
+  % endif
+  <div class="create_button">
+    <a href="${ create_url }">Create New</a>
+  </div>
+
+</div>

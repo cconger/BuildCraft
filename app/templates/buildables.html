@@ -1,0 +1,39 @@
+#-*- coding: utf-8 -*-
+<%inherit file="/chrome.html" />
+
+<%def name="head_tags()">
+  <!-- add some head tags here -->
+</%def>
+
+% if not len(buildables):
+<span>No Buildables...</span>
+% else:
+% for b in buildables:
+<div class="buildable_pane">
+  <div class="food_count">${b.supply_cost}</div>
+  <img class="buildable_img" src="${b.imageUrl}" />
+  <div class="buildable_description">
+    <span class="buildable_name">
+      ${b.name}
+    </span>
+  </div>
+  <div class="buildable_suppliments">
+    <span class="buildable_supp">
+      %if b.mineral_cost:
+        ${b.mineral_cost}m 
+      %endif
+      %if b.gas_cost:
+        ${b.gas_cost}g 
+      %endif
+      %if b.energy_cost:
+        ${b.energy_cost}e
+      %endif
+    </span>
+  </div>
+</div>
+% endfor
+% endif
+
+<div class="create_button">
+  <a href='${create_url | u}'>Create New</a>
+</div>
